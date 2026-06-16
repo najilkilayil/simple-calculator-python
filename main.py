@@ -1,7 +1,7 @@
 
 welcomeMessgae = "\t SIMPLE CALCULATOR \n ------------------------------------- \n "
 
-listValue = " 1. Press 1 for addition (+) \n 2. Press 2 for subtraction (-) \n 3. Press 3 for division  (/) \n 4. Press 4 for multiplication (x) \n 5. Press q to quit \n"
+listValue = " 1. Press 1 for addition (+) \n 2. Press 2 for subtraction (-) \n 3. Press 3 for division  (/) \n 4. Press 4 for multiplication (x) \n 5. Press 5 for exponent \n 6. Press 6 ffor square root \n"
 
 def addition():
     numberFirst = float(input("Enter first number: "))
@@ -52,6 +52,31 @@ def multiplication():
     else:
         print(f"{numberFirst} x {numberSecond} = {resultNumber}\n")
 
+def exponent():
+    numberFirst = float(input("Enter first number: "))
+    numberSecond = float(input("Enter second number: "))
+
+    if numberSecond % 1 != 0:
+        print("Point number can't be power!")
+        exponent()
+
+    if numberFirst % 1 == 0:
+        numberFirst = int(numberFirst)
+    
+    numberSecond = int(numberSecond)
+
+    result = ""
+    for i in range(numberSecond):
+        result = result + str(numberFirst)
+
+        if i < numberSecond -1:
+            result = result + " x "
+    
+    resultNumber = numberFirst ** numberSecond
+
+    print(f"{result} = {numberFirst} ^ {numberSecond} = {resultNumber} \n")
+
+
 def main():
     print(listValue)
 
@@ -79,6 +104,16 @@ def main():
         multiplication()
         main()
     
+    elif userSelection == '5':
+        print("You selected exponentation \n")
+        exponent()
+        main()
+
+    elif userSelection == '6':
+        print("You selected square root")
+        squareRoot()
+        main()
+
     elif userSelection == 'q':
         print("______________________________ \n")
 
