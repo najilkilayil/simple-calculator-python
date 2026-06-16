@@ -1,7 +1,7 @@
 
-welcomeMessgae = "\t SIMPLE CALCULATOR \n ------------------------------------- \n "
+welcomeMessgae = "\n ------------------------------------- \n\t SIMPLE CALCULATOR \n ------------------------------------- \n "
 
-listValue = " 1. Press 1 for addition (+) \n 2. Press 2 for subtraction (-) \n 3. Press 3 for division  (/) \n 4. Press 4 for multiplication (x) \n 5. Press 5 for exponent \n 6. Press 6 ffor square root \n"
+listValue = "  ______________________________________   \n | 1. Press 1 for addition (+)          |\n | 2. Press 2 for subtraction (-)       |\n | 3. Press 3 for division  (/)         |\n | 4. Press 4 for multiplication (x)    |\n | 5. Press 5 for exponent              |\n | 6. Press 6 for square root           |\n | 7. Press q for quit                  |\n  --------------------------------------  "
 
 def addition():
     numberFirst = float(input("Enter first number: "))
@@ -76,6 +76,25 @@ def exponent():
 
     print(f"{result} = {numberFirst} ^ {numberSecond} = {resultNumber} \n")
 
+def squareRoot():
+    number = float(input("Enter a number: "))
+
+    i=0
+    while i * i <= number:
+        if i * i == number:
+            resultNumber = i
+
+            if number % 1 ==0:
+                print(f"Square root of {int(number)} = {resultNumber} \n")
+                return
+            else:
+                print(f"Square root of {number} = {resultNumber} \n")
+                return
+
+        i = i + 1
+
+    print(f"{number} is not a perfect sqaure. \n")
+    squareRoot()
 
 def main():
     print(listValue)
